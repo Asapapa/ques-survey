@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感謝表現と性格の関連アンケート</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Firebase Config -->
+  <script>
+    window.__firebase_config = JSON.stringify({
+      apiKey: "AIzaSyBDID4qP21ELwMlaLWHsTE-5OkNKRgrqUs",
+      authDomain: "ques-e0907.firebaseapp.com",
+      projectId: "ques-e0907",
+      storageBucket: "ques-e0907.firebasestorage.app",
+      messagingSenderId: "479695513205",
+      appId: "1:479695513205:web:f9201285a23dd321733a3c",
+      measurementId: "G-QR0BVKFKLB"
+    });
+    window.__app_id = "ques-e0907";
+  </script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center py-8">
+  <div class="bg-white w-full max-w-3xl p-8 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">感謝表現と性格の関連アンケート</h1>
+    <form id="surveyForm" class="space-y-6">
+      <!-- 基本情報 -->
+      <fieldset class="border border-gray-200 p-4 rounded-lg">
+        <legend class="text-xl font-semibold text-gray-700">基本情報</legend>
+        <div class="mt-4 flex items-center space-x-6">
+          <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="male" class="form-radio h-5 w-5 text-indigo-600">
+            <span class="ml-2">男</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="female" class="form-radio h-5 w-5 text-indigo-600">
+            <span class="ml-2">女</span>
+          </label>
+        </div>
+        <div class="mt-4">
+          <label for="age" class="block">年齢：</label>
+          <input id="age" name="age" type="number" min="0" class="mt-1 px-3 py-2 border rounded-md w-20" placeholder="例:30"> 歳
+        </div>
+      </fieldset>
+
+      <!-- Q1 -->
+      <fieldset class="border border-gray-200 p-4 rounded-lg">
+        <legend class="text-xl font-semibold text-gray-700">Q1: 以下の場面で最初に出てくる言葉を選択してください</legend>
+        <p class="mt-2 text-gray-600">（選択肢：ありがとうございます / すみません）</p>
+        <div class="mt-4 space-y-4">
+          <!-- 質問ループ -->
+          <script>const q1 = [
+            "駅で見知らぬ人に財布を拾ってもらった",
+            "雑貨店で欲しい商品の場所を教えてもらった",
+            "宅配業者から荷物を受け取った",
+            "教室の入り口で譲ってもらった",
+            "エレベーターで『開』ボタンを押してもらった",
+            "電車で座席を詰めてもらった",
+            "飲食店で席まで案内してもらった",
+            "飲食店で食器を片付けてもらった",
+            "駅員に行き方を教えてもらった",
+            "映画館で座っている人の前を通してもらった",
+            "店員に商品を出口まで運んでもらった",
+            "飲食店で水のおかわりをもらった"
+          ];</script>
+          <div id="q1Container"></div>
+        </div>
+      </fieldset>
+
+      <!-- Q2 -->
+      <fieldset class="border border-gray-200 p-4 rounded-lg">
+        <legend class="text-xl font-semibold text-gray-700">Q2: 自己決定意識に関する評価</legend>
+        <p class="mt-2 text-gray-600">（1: 全くあてはまらない ～ 5: よくあてはまる）</p>
+        <div class="mt-4 space-y-4">
+          <script>const q2 = [
+            "自分のことは、自分で何とかしようと思う",
+            "自分で考えて、自分のやるべきことを見つけようとする",
+            "何か問題が起こったとき、自分で何をする方法を考えようとする",
+            "これはやって良いか悪いかを、自分で考えて行動しようとしている",
+            "自分の言ったことを自分できちんと理解しようとしている",
+            "迷ったときに人に相談はするけれど、最後には自分で決めようとする",
+            "私は自分のことは自分で解決する",
+            "私は困難にぶつかってもそれを克服できる",
+            "私は自分で決めたことには責任をもつ",
+            "何が起こったとしても自分なりにやっていける",
+            "将来的に問題が起こったとしても、何とか対処していけるという"
+          ];</script>
+          <div id="q2Container"></div>
+        </div>
+      </fieldset>
+
+      <button type="button" id="submitBtn" class="mt-4 w-full bg-indigo-600 text-white py-3 rounded-md">回答を送信</button>
+    </form>
+
+    <div id="message" class="mt-4 text-center text-green-600 hidden">回答ありがとうございます！</div>
+    <div id="error" class="mt-4 text-center text-red-600 hidden">すべての質問に回答してください。</div>
+
+    <!-- 回答表示 -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4">全回答（匿名）</h2>
+      <div id="responses" class="space-y-4 text-gray-800"></div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK & スクリプト -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    const firebaseConfig = JSON.parse(window.__firebase_config);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // 認証 & 回答読み込み
+    let uid;
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        uid = user.uid;
+        loadResponses();
+      } else {
+        signInAnonymously(auth);
+      }
+    });
+
+    // 質問描画
+    const q1Container = document.getElementById('q1Container');
+    q1.forEach((text, i) => {
+      const idx = i+1;
+      const div = document.createElement('div');
+      div.className = 'p-3 bg-gray-50 rounded-md';
+      let html = `<p class=\"font-medium\">${idx}. ${text}</p>`;
+      ['thanks','apology'].forEach(val => {
+        html += `<label class=\"inline-flex items-center mr-4\"><input type=\"radio\" name=\"q1_${idx}\" value=\"${val}\" class=\"form-radio\"> <span class=\"ml-2\">${val==='thanks'?'ありがとうございます':'すみません'}</span></label>`;
+      });
+      div.innerHTML = html;
+      q1Container.appendChild(div);
+    });
+
+    const q2Container = document.getElementById('q2Container');
+    q2.forEach((text, i) => {
+      const idx = i+1;
+      const div = document.createElement('div');
+      div.className = 'p-3 bg-gray-50 rounded-md';
+      let html = `<p class=\"font-medium\">${idx}. ${text}</p>`;
+      for (let v=1; v<=5; v++) {
+        html += `<label class=\"inline-flex items-center mr-4\"><input type=\"radio\" name=\"q2_${idx}\" value=\"${v}\" class=\"form-radio\"> <span class=\"ml-2\">${v}</span></label>`;
+      }
+      div.innerHTML = html;
+      q2Container.appendChild(div);
+    });
+
+    // 送信
+    document.getElementById('submitBtn').onclick = async () => {
+      const form = document.getElementById('surveyForm');
+      const data = new FormData(form);
+      const basic = { gender: data.get('gender'), age: parseInt(data.get('age')) };
+      if (!basic.gender || !basic.age) return showError();
+      const q1ans = {}, q2ans = {};
+      for (let i=1; i<=12; i++) { const a=data.get(`q1_${i}`); if(!a) return showError(); q1ans[`q1_${i}`]=a; }
+      for (let i=1; i<=11; i++) { const a=data.get(`q2_${i}`); if(!a) return showError(); q2ans[`q2_${i}`]=a; }
+      try {
+        await addDoc(collection(db, `artifacts/${window.__app_id}/public/data/surveys`), { uid, basic, q1:q1ans, q2:q2ans, ts: serverTimestamp() });
+        showMessage(); form.reset();
+      } catch { showError(); }
+    };
+
+    function showMessage() { document.getElementById('message').classList.remove('hidden'); document.getElementById('error').classList.add('hidden'); }
+    function showError() { document.getElementById('error').classList.remove('hidden'); document.getElementById('message').classList.add('hidden'); }
+
+    // レスポンス読み込み
+    function loadResponses(){
+      onSnapshot(collection(db, `artifacts/${window.__app_id}/public/data/surveys`), snap=>{
+        const c = document.getElementById('responses'); c.innerHTML='';
+        snap.forEach(d=>{
+          const doc = d.data();
+          const div = document.createElement('div'); div.className='p-3 bg-blue-50 rounded-md';
+          let html = `<p><strong>回答ID:</strong> ${doc.uid}</p><p><strong>性別:</strong> ${doc.basic.gender==='male'?'男':'女'} / <strong>年齢:</strong> ${doc.basic.age}歳</p>`;
+          html+= '<p class="font-semibold mt-2">Q1:</p><ul class="list-disc ml-6">'; for(const k in doc.q1) html+= `<li>${k}: ${doc.q1[k]==='thanks'?'ありがとうございます':'すみません'}</li>`; html+='</ul>';
+          html+= '<p class="font-semibold mt-2">Q2:</p><ul class="list-disc ml-6">'; for(const k in doc.q2) html+= `<li>${k}: ${doc.q2[k]}</li>`; html+='</ul>';
+          div.innerHTML=html; c.prepend(div);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
