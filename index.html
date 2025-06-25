@@ -1,124 +1,292 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>感謝表現と性格の関連アンケート</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    window.__firebase_config = JSON.stringify({
-      apiKey: "AIzaSyBDID4qP21ELwMlaLWHsTE-5OkNKRgrqUs",
-      authDomain: "ques-e0907.firebaseapp.com",
-      projectId: "ques-e0907",
-      storageBucket: "ques-e0907.firebasestorage.app",
-      messagingSenderId: "479695513205",
-      appId: "1:479695513205:web:f9201285a23dd321733a3c",
-      measurementId: "G-QR0BVKFKLB"
-    });
-    window.__app_id = "ques-e0907";
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タマホーム なぜ安い？価格の秘密を徹底解説！賢く建てるための注意点</title>
+    <!-- Tailwind CSS CDNを読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* やや明るい背景色 */
+            color: #343a40; /* 濃いめのテキスト色 */
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-weight: 700; /* 太字 */
+            margin-bottom: 1rem;
+            color: #212529; /* 見出しの強調色 */
+        }
+        h1 {
+            font-size: 2.5rem; /* 大きめのフォントサイズ */
+            line-height: 1.2;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #e9ecef; /* 下線 */
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            color: #495057; /* やや薄めの見出し色 */
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .container {
+            background-color: #ffffff; /* 白い背景 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影 */
+            border-radius: 0.75rem; /* 角丸 */
+            padding: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center py-8">
-  <div class="bg-white w-full max-w-3xl p-8 rounded-xl shadow-lg">
-    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">感謝表現と性格の関連アンケート</h1>
-    <form id="surveyForm" class="space-y-6">
-      <fieldset class="border border-gray-200 p-4 rounded-lg">
-        <legend class="text-xl font-semibold text-gray-700">基本情報</legend>
-        <div class="mt-4 flex items-center space-x-6">
-          <label class="inline-flex items-center">
-            <input type="radio" name="gender" value="male" class="form-radio h-5 w-5 text-indigo-600">
-            <span class="ml-2">男</span>
-          </label>
-          <label class="inline-flex items-center">
-            <input type="radio" name="gender" value="female" class="form-radio h-5 w-5 text-indigo-600">
-            <span class="ml-2">女</span>
-          </label>
-        </div>
-        <div class="mt-4">
-          <label for="age" class="block">年齢：</label>
-          <input id="age" name="age" type="number" min="0" class="mt-1 px-3 py-2 border rounded-md w-20" placeholder="例:30"> 歳
-        </div>
-      </fieldset>
+<body class="antialiased">
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg">
+        <!-- 記事タイトル -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-center mb-6">
+            タマホーム なぜ安い？価格の秘密を徹底解説！賢く建てるための注意点
+        </h1>
 
-      <fieldset class="border border-gray-200 p-4 rounded-lg">
-        <legend class="text-xl font-semibold text-gray-700">Q1: 以下の場面で最初に出てくる言葉を選択してください</legend>
-        <p class="mt-2 text-gray-600">（選択肢：ありがとうございます / すみません）</p>
-        <div class="mt-4 space-y-4">
-          <script>const q1 = [
-            "駅で見知らぬ人に財布を拾ってもらった",
-            "雑貨店で欲しい商品の場所を教えてもらった",
-            "宅配業者から荷物を受け取った",
-            "教室の入り口で譲ってもらった",
-            "エレベーターで『開』ボタンを押してもらった",
-            "電車で座席を詰めてもらった",
-            "飲食店で席まで案内してもらった",
-            "飲食店で食器を片付けてもらった",
-            "駅員に行き方を教えてもらった",
-            "映画館で座っている人の前を通してもらった",
-            "店員に商品を出口まで運んでもらった",
-            "飲食店で水のおかわりをもらった"
-          ];</script>
-          <div id="q1Container"></div>
-        </div>
-      </fieldset>
+        <!-- はじめに -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                はじめに：タマホームの「安い」は本当か？その真相に迫る！
+            </h2>
+            <p>
+                「タマホームの家は安い」という評判を耳にすることは多いですが、本当にそんなに手頃な価格で高品質な家が建てられるのか、疑問に感じる方も少なくないでしょう。価格が安いと聞くと、品質やサービスに不安を感じるのも当然のことです。
+            </p>
+            <p>
+                この記事では、タマホームがなぜ「安い」と言われるのか、その具体的な理由を徹底的に掘り下げて解説します。安さの背景にある企業の努力や独自のビジネスモデル、そしてそれがもたらすメリットやデメリット、さらには後悔しないために知っておくべき注意点まで、詳しくご紹介していきます。
+            </p>
+            <p>
+                この記事を読み終える頃には、タマホームの価格設定の秘密が明らかになり、あなたが理想のマイホームを建てるための賢い選択肢の一つとして、タマホームを検討できるようになるでしょう。
+            </p>
+            <!-- [イメージ：タマホームのロゴ、またはモダンな家の外観] -->
+        </section>
 
-      <fieldset class="border border-gray-200 p-4 rounded-lg">
-        <legend class="text-xl font-semibold text-gray-700">Q2: 自己決定意識に関する評価</legend>
-        <p class="mt-2 text-gray-600">（1: 全くあてはまらない ～ 5: よくあてはまる）</p>
-        <div class="mt-4 space-y-4">
-          <script>const q2 = [
-            "自分のことは、自分で何とかしようと思う",
-            "自分で考えて、自分のやるべきことを見つけようとする",
-            "何か問題が起こったとき、自分で何をする方法を考えようとする",
-            "これはやって良いか悪いかを、自分で考えて行動しようとしている",
-            "自分の言ったことを自分できちんと理解しようとしている",
-            "迷ったときに人に相談はするけれど、最後には自分で決めようとする",
-            "私は自分のことは自分で解決する",
-            "私は困難にぶつかってもそれを克服できる",
-            "私は自分で決めたことには責任をもつ",
-            "何が起こったとしても自分なりにやっていける",
-            "将来的に問題が起こったとしても、何とか対処していけるという"
-          ];</script>
-          <div id="q2Container"></div>
-        </div>
-      </fieldset>
+        <!-- タマホームの価格帯はどれくらい？基本を知ろう -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                タマホームの価格帯はどれくらい？基本を知ろう
+            </h2>
+            <p>
+                まずは、タマホームが提供する住宅の基本的な価格帯について理解しましょう。「安い」というイメージが先行しがちですが、具体的にどの程度の予算感で建てられるのかを知ることは非常に重要です。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">タマホームの坪単価目安</h3>
+            <p>
+                タマホームの坪単価は、プランや地域、選ぶ設備によって変動しますが、一般的には<strong>坪あたり40万円～60万円</strong>が目安とされています。これは、大手ハウスメーカーの中でも比較的リーズナブルな価格帯に位置します。ただし、これはあくまで本体価格の目安であり、別途費用がかかることには注意が必要です。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">人気のシリーズ別価格例</h3>
+            <p>
+                タマホームには、「大安心の家」や「木麗な家」など、複数の商品ラインナップがあります。それぞれのシリーズで標準仕様やデザインコンセプトが異なり、価格帯も幅があります。例えば、「大安心の家」はコストパフォーマンスに優れ、多くの方に選ばれています。
+            </p>
+            <ul>
+                <li><strong>大安心の家：</strong>コストと品質のバランスが良く、標準仕様も充実。</li>
+                <li><strong>木麗な家：</strong>木の温もりを感じるデザインが特徴。</li>
+                <li><strong>シフクノいえ：</strong>より自由度の高い設計が可能。</li>
+            </ul>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">総額で見る！本体価格以外の費用</h3>
+            <p>
+                住宅の取得には、本体価格以外にも様々な費用が発生します。これらを含めた総額で考えることが重要です。
+            </p>
+            <ul>
+                <li><strong>付帯工事費：</strong>外構工事、給排水工事、地盤改良工事など</li>
+                <li><strong>諸費用：</strong>登記費用、ローン手数料、税金（不動産取得税など）</li>
+                <li><strong>オプション費用：</strong>標準仕様以外の追加設備や間取り変更など</li>
+            </ul>
+            <p>
+                これらの費用を含めると、最終的な総額は本体価格の1.2倍～1.3倍程度になることが多いとされています。
+            </p>
+            <!-- [イメージ：坪単価のグラフ、またはシリーズごとの家の外観イラスト] -->
+        </section>
 
-      <button type="button" id="submitBtn" class="mt-4 w-full bg-indigo-600 text-white py-3 rounded-md">回答を送信</button>
-    </form>
+        <!-- タマホームが「安い」と言われる5つの具体的な理由 -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                タマホームが「安い」と言われる5つの具体的な理由
+            </h2>
+            <p>
+                タマホームの「安さ」は、単なる低価格戦略ではなく、徹底したコスト削減努力と独自のビジネスモデルによって実現されています。ここでは、その具体的な理由を5つ解説します。
+            </p>
 
-    <div id="message" class="mt-4 text-center text-green-600 hidden">回答ありがとうございます！</div>
-    <div id="error" class="mt-4 text-center text-red-600 hidden">すべての質問に回答してください。</div>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">理由1：全国展開による「大量仕入れ」でコストを削減</h3>
+            <p>
+                タマホームは全国に多数の支店を持ち、年間で非常に多くの住宅を供給しています。このスケールメリットを活かし、建材や設備をメーカーから大量に一括で仕入れることで、一つあたりの仕入れ単価を大幅に抑えることに成功しています。自動車メーカーが部品を大量購入してコストを下げるのと似た仕組みです。
+            </p>
+            <!-- [イメージ：大量の建材が積まれている倉庫の様子] -->
 
-    <div class="mt-8">
-      <h2 class="text-2xl font-semibold text-gray-700 mb-4">全回答（匿名）</h2>
-      <div id="responses" class="space-y-4 text-gray-800"></div>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">理由2：資材の「直接仕入れ」と「中間マージンカット」</h3>
+            <p>
+                一般的なハウスメーカーでは、建材や設備が商社や問屋といった複数の業者を介して仕入れられるため、中間マージンが発生します。しかし、タマホームは商社などを介さず、メーカーから直接資材を仕入れることで、この中間マージンを徹底的にカットしています。これにより、コストをさらに削減し、価格に還元しているのです。
+            </p>
+            <!-- [イメージ：サプライチェーンの図（中間マージンがカットされている様子）] -->
+
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">理由3：自社工場を持たない「効率的な生産体制」</h3>
+            <p>
+                大手ハウスメーカーの中には、自社で工場を持ち、プレハブ部材などを生産しているところもあります。これは品質管理の面でメリットがある一方で、工場維持のためのコストが発生します。タマホームは自社工場を持たず、提携する優良工場に生産を委託することで、設備投資や維持管理にかかるコストを削減しています。
+            </p>
+            <!-- [イメージ：建築現場での効率的な作業風景] -->
+
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">理由4：「規格化された設計」と「シンプルな構造」</h3>
+            <p>
+                タマホームの多くの商品は、一定のルールに基づいた「規格化された設計」を採用しています。これにより、設計や施工における無駄を省き、効率的な家づくりが可能になります。また、複雑な構造よりもシンプルで施工しやすい構造を採用することで、工期短縮や人件費の削減にも繋がっています。もちろん、自由度がないわけではなく、規格内での選択肢は豊富です。
+            </p>
+            <!-- [イメージ：モジュール化された住宅のパーツ、またはシンプルな間取り図] -->
+
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">理由5：徹底した「コスト管理」と「販促戦略」</h3>
+            <p>
+                広告宣伝費や人件費など、住宅建設以外のコストも徹底的に管理しています。また、モデルハウスの建設費を抑えたり、特定のキャンペーン期間を設けるなど、効率的な販促戦略も価格に反映されています。もちろん、全国的にCMなども放送していますが、全体のバランスを見てコストを最適化していると言えるでしょう。
+            </p>
+            <!-- [イメージ：コスト削減をイメージさせるグラフ、または合理的なビジネスモデルのイラスト] -->
+        </section>
+
+        <!-- 安さだけじゃない！タマホームを選ぶメリット・デメリット -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                安さだけじゃない！タマホームを選ぶメリット・デメリット
+            </h2>
+            <p>
+                タマホームの最大の魅力は「安さ」ですが、それだけではありません。価格以外のメリットと、注意すべきデメリットを理解することで、より賢い選択ができます。
+            </p>
+
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">メリット：高いコストパフォーマンスと充実の標準仕様</h3>
+            <h4 class="text-lg sm:text-xl font-medium mt-4 mb-2">注文住宅でも手の届く価格帯</h4>
+            <p>
+                最大のメリットは、何と言っても一般的な注文住宅に比べて手の届きやすい価格で、理想に近い家が建てられる点です。予算に限りがあるけれど、建売住宅では満足できないという方には特に魅力的です。
+            </p>
+            <h4 class="text-lg sm:text-xl font-medium mt-4 mb-2">充実した設備・仕様が標準</h4>
+            <p>
+                価格が安いにも関わらず、キッチン、バス、トイレなどの水回り設備や、窓、断熱材など、住宅の主要な部分において高いグレードのものが標準仕様として提供されることが多いです。これにより、追加費用を抑えながらも快適な住環境が手に入ります。
+            </p>
+            <h4 class="text-lg sm:text-xl font-medium mt-4 mb-2">自由度の高い間取り設計（一部制限あり）</h4>
+            <p>
+                完全自由設計ではないものの、規格化された中でのプランの選択肢が豊富であり、ある程度の自由度を持った間取り設計が可能です。ライフスタイルに合わせたカスタマイズも相談できます。
+            </p>
+
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">デメリット：注意すべき点と後悔しないために</h3>
+            <h4 class="text-lg sm:text-xl font-medium mt-4 mb-2">担当者によって対応に差がある可能性</h4>
+            <p>
+                全国展開しているため、担当する営業担当者や現場監督の経験やスキル、人柄によって、対応にばらつきが生じる可能性が指摘されることがあります。契約前にしっかりとコミュニケーションを取り、信頼できる担当者かを見極めることが重要です。
+            </p>
+            <h4 class="text-lg sm:text-xl font-medium mt-4 mb-2">工期の調整が難しいケースも</h4>
+            <p>
+                効率的な生産体制ゆえに、一度決まった工期の変更が難しい場合があります。引っ越し時期など、タイトなスケジュールがある場合は、事前に十分な確認が必要です。
+            </p>
+            <h4 class="text-lg sm:text-xl font-medium mt-4 mb-2">大規模な変更には追加費用が発生しやすい</h4>
+            <p>
+                基本は規格化された範囲内での選択肢が多いため、標準仕様から大幅な変更や特別なオーダーをすると、追加費用がかさむ可能性があります。予算オーバーにならないよう、事前に担当者と綿密な打ち合わせを行いましょう。
+            </p>
+            <!-- [イメージ：メリットとデメリットを対比させたイラスト] -->
+        </section>
+
+        <!-- タマホームの安さの裏側にある「品質」は大丈夫？ -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                タマホームの安さの裏側にある「品質」は大丈夫？
+            </h2>
+            <p>
+                「安かろう悪かろう」という言葉があるように、価格が安いと品質を心配する声も聞かれます。しかし、タマホームは品質面においても様々な取り組みを行っています。
+            </p>
+
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">構造や耐震性：長期優良住宅対応など</h3>
+            <p>
+                タマホームの住宅は、耐震性・耐久性にも配慮されています。多くのプランで「長期優良住宅」の認定基準に対応しており、これは国が定めた厳しい基準をクリアしていることを意味します。耐力面材や適切な基礎構造の採用により、地震などの災害にも強い家づくりを目指しています。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">断熱性や省エネ性能</h3>
+            <p>
+                快適な住環境には、断熱性能も欠かせません。タマホームでは、高性能な断熱材やサッシの採用により、高い断熱性能を確保しています。これにより、夏は涼しく冬は暖かく過ごせるだけでなく、冷暖房費の節約にも繋がり、省エネ性能の高い家を実現しています。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">アフターサービスと保証体制</h3>
+            <p>
+                住宅は建てて終わりではありません。タマホームでは、引き渡し後のアフターサービスや保証体制も充実させています。長期保証制度や定期点検など、安心して長く住み続けるためのサポートが提供されています。万が一のトラブルにも対応できるよう、事前に保証内容を確認しておきましょう。
+            </p>
+            <!-- [イメージ：耐震構造や断熱材の断面図、または保証制度の案内] -->
+        </section>
+
+        <!-- 他のハウスメーカーと比較！タマホームはどんな立ち位置？ -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                他のハウスメーカーと比較！タマホームはどんな立ち位置？
+            </h2>
+            <p>
+                タマホームを検討する上で、他のハウスメーカーとの比較は欠かせません。どのような位置づけのハウスメーカーなのかを理解しましょう。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">ローコスト住宅メーカーとの比較</h3>
+            <p>
+                アキュラホームやアイ工務店など、他にもローコストを売りにしているハウスメーカーは多数存在します。タマホームは、その中でもトップクラスの販売実績を誇り、価格競争力と知名度において優位性があります。各社の標準仕様やデザインの傾向を比較検討し、ご自身の希望に合うメーカーを見つけることが大切です。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">大手ハウスメーカーとの比較</h3>
+            <p>
+                積水ハウスやダイワハウスといった大手ハウスメーカーと比較すると、タマホームは坪単価が低い傾向にあります。大手メーカーはブランド力や最新技術、手厚いアフターサービスが魅力ですが、その分コストも高くなります。タマホームは、価格を抑えつつも一定の品質と保証を提供しており、コストパフォーマンスを重視する層には魅力的な選択肢となります。
+            </p>
+            <!-- [イメージ：各ハウスメーカーのロゴが並んだ比較表] -->
+        </section>
+
+        <!-- タマホームでさらに費用を抑えるためのポイント -->
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                タマホームでさらに費用を抑えるためのポイント
+            </h2>
+            <p>
+                タマホームで家を建てる際に、さらに費用を賢く抑えるための具体的なポイントをいくつかご紹介します。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">無駄なオプションを見極める</h3>
+            <p>
+                標準仕様が充実しているため、不要なオプションは極力削減することで費用を抑えられます。本当に必要なもの、後から追加できるものなどを担当者とよく相談し、優先順位をつけて選びましょう。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">土地探しと家づくりを同時に進める</h3>
+            <p>
+                土地の形状や地盤の状態は、建築費用に大きく影響します。土地探しと並行してハウスメーカーと相談することで、その土地に合わせた最適なプランを検討し、予期せぬ追加費用を抑えることができます。
+            </p>
+            <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-3">複数のハウスメーカーから見積もりを取る</h3>
+            <p>
+                タマホームに決める前に、必ず複数のハウスメーカーから見積もりを取り、比較検討しましょう。各社の見積もりを比較することで、タマホームの価格が適正であるか、また他の選択肢の方がコストパフォーマンスが良い場合もあるかを見極めることができます。相見積もりは値引き交渉の材料にもなります。
+            </p>
+            <!-- [イメージ：電卓や見積もり書のアイコン、または複数のハウスメーカーのパンフレット] -->
+        </section>
+
+        <!-- まとめ -->
+        <section>
+            <h2 class="text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 pb-2 mb-4">
+                まとめ：タマホームの安さを理解し、後悔しない家づくりを
+            </h2>
+            <p>
+                この記事では、タマホームがなぜ安いのかという疑問に対し、その価格の秘密、メリット・デメリット、品質面、そして賢い家づくりのポイントまでを詳しく解説しました。
+            </p>
+            <p>
+                タマホームは、大量仕入れや直接仕入れ、効率的な生産体制など、独自のビジネスモデルと徹底したコスト管理により、高品質な住宅をリーズナブルな価格で提供しているハウスメーカーです。単に「安い」だけでなく、充実した標準仕様や保証体制も魅力です。
+            </p>
+            <p>
+                タマホームの安さの理由を正しく理解し、ご自身のライフスタイルや予算に合った家づくりを進めることで、きっと理想のマイホームが手に入るでしょう。契約前には、複数のハウスメーカーと比較検討し、担当者とのコミュニケーションを密に取ることをお勧めします。
+            </p>
+            <p>
+                あなたの家づくりが成功することを心から願っています。
+            </p>
+            <!-- [イメージ：完成した家のイラスト、または家族が笑顔で過ごす様子] -->
+        </section>
     </div>
-  </div>
 
-   <!-- content omitted for brevity -->
-   <script type="module">
-    // Firebase imports omitted for brevity
-    function loadResponses(){
-      onSnapshot(collection(db, `artifacts/${window.__app_id}/public/data/surveys`), snap=>{
-        const c = document.getElementById('responses'); c.innerHTML='';
-        snap.forEach(d=>{
-          const doc = d.data();
-          const div = document.createElement('div'); div.className='p-3 bg-blue-50 rounded-md';
-          let html = `<p><strong>回答ID:</strong> ${doc.uid}</p><p><strong>性別:</strong> ${doc.basic.gender==='male'?'男':'女'} / <strong>年齢:</strong> ${doc.basic.age}歳</p>`;
-          html+= '<p class="font-semibold mt-2">Q1:</p><ul class="list-disc ml-6">';
-          Object.keys(doc.q1).sort((a, b) => parseInt(a.split('_')[1]) - parseInt(b.split('_')[1])).forEach(k => {
-            html += `<li>${k}: ${doc.q1[k]==='thanks'?'ありがとうございます':'すみません'}</li>`;
-          });
-          html+='</ul>';
-          html+= '<p class="font-semibold mt-2">Q2:</p><ul class="list-disc ml-6">';
-          Object.keys(doc.q2).sort((a, b) => parseInt(a.split('_')[1]) - parseInt(b.split('_')[1])).forEach(k => {
-            html += `<li>${k}: ${doc.q2[k]}</li>`;
-          });
-          html+='</ul>';
-          div.innerHTML=html; c.prepend(div);
-        });
-      });
-    }
-  </script>
+    <!-- JavaScriptは現時点では不要ですが、将来的な機能追加のために配置 -->
+    <script>
+        // 必要に応じてここにJavaScriptコードを記述します。
+        // 例：スムーススクロール、インタラクティブ要素など
+    </script>
 </body>
 </html>
