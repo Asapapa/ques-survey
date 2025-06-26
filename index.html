@@ -19,10 +19,280 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- スタイル省略 -->
+    <style id='main_style-inline-css' type='text/css'>
+        :root {
+            --color_main: #a2997f; /* スウェーデンハウスに合わせたメインカラー */
+            --color_text: #5b5b5b;
+            --color_link: #1558d6;
+            --color_htag: #a2997f;
+            --color_bg: #f7f7f7;
+            --color_content_bg: #fff;
+            --color_border: hsla(0,0%,78%,.5);
+            --color_gray: hsla(0,0%,78%,.15);
+            --swl-box_shadow: 0 2px 4px rgba(0,0,0,.05),0 4px 4px -4px rgba(0,0,0,.1);
+            --swl-img_shadow: 0 2px 8px rgba(0,0,0,.1),0 4px 8px -4px rgba(0,0,0,.2);
+            --swl-radius--4: 4px;
+            --swl-radius--8: 8px;
+            --swl-fz--content: 16px;
+            --swl-block-margin: 2em;
+        }
+        body {
+            font-family: "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            color: var(--color_text);
+            line-height: 1.6;
+            background-color: var(--color_bg);
+        }
+        a {
+            color: var(--color_link);
+            text-decoration: none;
+        }
+        .l-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 4vw;
+        }
+        .l-content {
+            margin: 0 auto 6em;
+            padding-top: 2em;
+            position: relative;
+        }
+        .p-articleHead .c-postTitle__ttl {
+            font-size: 2em; /* 仮のサイズ */
+            line-height: 1.4;
+            text-align: center;
+        }
+        .post_content {
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color_content_bg); /* 背景色を追加 */
+            padding: 2em; /* 内側のパディング */
+            border-radius: var(--swl-radius--4); /* 角丸を追加 */
+            box-shadow: var(--swl-box_shadow); /* 影を追加 */
+        }
+        .post_content > * {
+            margin-bottom: var(--swl-block-margin);
+        }
+        .post_content h2 {
+            font-size: 1.4em;
+            line-height: 1.4;
+            margin: 4em 0 2em;
+            color: var(--color_htag);
+            background: var(--color_htag); /* H2背景色 */
+            padding: .75em 1em;
+            color: #fff;
+            position: relative;
+        }
+        .post_content h2::before {
+            position: absolute;
+            display: block;
+            pointer-events: none;
+            content: "";
+            top: -4px;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 4px);
+            box-sizing: content-box;
+            border-top: solid 2px var(--color_htag);
+            border-bottom: solid 2px var(--color_htag);
+        }
+        .post_content h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 3em 0 2em;
+            padding: 0 .5em .5em;
+            position: relative;
+        }
+        .post_content h3::before {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, var(--color_htag) 0%, var(--color_htag) 29.3%, rgba(150,150,150,.2) 29.3%, rgba(150,150,150,.2) 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .post_content ul {
+            list-style: disc;
+            padding-left: 1.5em;
+        }
+        .post_content ol {
+            list-style: decimal;
+            padding-left: 1.5em;
+        }
+        .p-articleThumb img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            box-shadow: var(--swl-img_shadow);
+            border-radius: var(--swl-radius--8);
+        }
+        .p-toc {
+            background: var(--color_gray);
+            padding: 1.5em;
+            margin: 4em auto;
+            border-radius: var(--swl-radius--4);
+            box-shadow: var(--swl-box_shadow);
+        }
+        .p-toc__ttl {
+            font-size: 1.2em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        .p-toc__list {
+            list-style: none;
+            padding: 0;
+        }
+        .p-toc__list li {
+            line-height: 1.6;
+            margin-bottom: .5em;
+        }
+        .p-toc__list .p-toc__childList {
+            padding-left: 1em;
+        }
+        .c-balloon {
+            display: flex;
+            margin: 2em 0;
+        }
+        .c-balloon__icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #ececec;
+        }
+        .c-balloon__iconImg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .c-balloon__body {
+            flex: 1;
+            padding: 8px 24px;
+        }
+        .c-balloon__text {
+            background: #fff8eb; /* 仮の背景色 */
+            border: 1px solid #fdc44f; /* 仮のボーダー色 */
+            border-radius: 8px;
+            padding: 1em;
+            position: relative;
+        }
+        .c-balloon__text::before { /* 吹き出しの三角部分 */
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: -10px;
+            border-width: 8px 10px 8px 0;
+            border-style: solid;
+            border-color: transparent #fdc44f transparent transparent;
+        }
+        .c-balloon__text::after { /* 吹き出しの三角部分（内側） */
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: -8px;
+            border-width: 8px 10px 8px 0;
+            border-style: solid;
+            border-color: transparent #fff8eb transparent transparent;
+        }
+        .c-blogLink {
+            display: block;
+            padding: 1em;
+            border: 1px solid var(--color_border);
+            border-radius: var(--swl-radius--4);
+            box-shadow: var(--swl-box_shadow);
+            margin: 1.5em auto;
+            text-align: center;
+        }
+        .c-blogLink__text {
+            display: block;
+            font-weight: 700;
+            margin-top: .5em;
+        }
+        .swell-block-step__item {
+            position: relative;
+            padding-left: 64px;
+            padding-bottom: 3em;
+        }
+        .swell-block-step__item::before {
+            content: "";
+            position: absolute;
+            left: 23px;
+            top: 0;
+            height: 100%;
+            width: 0;
+            border-left: 1px dashed var(--color_border);
+        }
+        .swell-block-step__item:last-child::before {
+            content: none;
+        }
+        .swell-block-step__number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            background-color: var(--color_main);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        .swell-block-step__title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+        .swell-block-step__body {
+            margin-top: 1em;
+        }
+        .c-mvBtn__btn { /* CTAボタンのスタイル */
+            background-color: var(--color_main);
+            color: #fff;
+            border-radius: 80px;
+            padding: 0.75em 2.5em;
+            text-align: center;
+            display: block;
+            width: fit-content;
+            margin: 2em auto;
+            font-weight: 700;
+            box-shadow: 0 4px 0 var(--color_main);
+        }
+    </style>
 </head>
 <body>
     <div id="body_wrap" class="wp-singular post-template-default single single-post single-format-standard wp-theme-swell wp-child-theme-swell_child -body-solid -sidebar-off -frame-on -frame-on-sidebar">
         <header><!-- ヘッダー省略 --></header>
+        <nav class="p-toc">
+            <span class="p-toc__ttl">目次</span>
+            <ol class="p-toc__list">
+                <li><a href="#swedenhouse-standard">スウェーデンハウスの標準仕様</a></li>
+                <li><a href="#kitchen-standard">キッチンの標準仕様</a></li>
+                <li><a href="#bath-standard">お風呂の標準仕様</a></li>
+                <li><a href="#toilet-standard">トイレの標準仕様</a></li>
+                <li><a href="#washstand-standard">洗面化粧台の標準仕様</a></li>
+                <li><a href="#exterior-wall-standard">外壁の標準仕様</a></li>
+                <li><a href="#flooring-standard">床材の標準仕様</a></li>
+                <li><a href="#door-standard">ドアの標準仕様</a></li>
+                <li><a href="#window-standard">窓の標準仕様</a></li>
+                <li><a href="#ventilation-standard">換気システムの標準仕様</a></li>
+                <li><a href="#roof-standard">屋根(瓦)の標準仕様</a></li>
+                <li><a href="#insulation-standard">断熱材の標準仕様</a></li>
+                <li><a href="#seismic-standard">耐震性の標準仕様</a></li>
+                <li><a href="#foundation-standard">基礎の標準仕様</a></li>
+                <li><a href="#design-standard">デザインの標準仕様</a></li>
+                <li><a href="#comparison-standard">他メーカー比較</a></li>
+                <li><a href="#regional-info">地域別情報取得方法</a></li>
+            </ol>
+        </nav>
         <div id="breadcrumb" class="p-breadcrumb -bg-on"><!-- パンくず省略 --></div>
         <div id="content" class="l-content l-container">
             <main id="main_content" class="l-mainContent l-article">
@@ -38,7 +308,7 @@
                             <div class="c-balloon__icon -circle"><img src="https://yuruyuru11.xsrv.jp/wp-content/uploads/2022/04/cropped-icon-150x150.jpg" alt="ゆるはうすアイコン" class="c-balloon__iconImg"></div>
                             <div class="c-balloon__body"><div class="c-balloon__text"><p>スウェーデンハウスの標準仕様は、カタログで詳しく解説されています！最新の情報は必ず公式カタログで確認しましょう！</p></div></div>
                         </div>
-                        <div class="p-toc -double"><span class="p-toc__ttl">目次</span></div>
+
 
                         <h2>スウェーデンハウスの標準仕様</h2>
                         <p>ここにスウェーデンハウスの標準仕様に関する詳細な情報が入ります。</p>
